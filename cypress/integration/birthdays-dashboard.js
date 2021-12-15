@@ -8,7 +8,7 @@ describe('Birthdays Calendar user flow', () => {
     cy.visit('http://localhost:3000/');
   })
 
-  it('should have 3 list items to start', () => {
+  it('Should have 3 birthdays displayed when the user first visits the site', () => {
     cy.get('.BdayContainer')
       .children()
       .should('have.length', 12)
@@ -16,4 +16,23 @@ describe('Birthdays Calendar user flow', () => {
       .get('div[class="bday-month-container"]').contains('Kayla')
       .get('div[class="bday-month-container"]').contains('Kari')
   });
+
+  it('When data is put into the form, the value is reflected in that form input', () => {
+    cy.get('.Bday-active-input-form')
+      .get('.name-input').type('Ivonne')
+      .get('.month-input').type(10)
+      .get('.day-input').type(29)
+      
+      cy.get('.name-input').should('have.value', 'Ivonne')
+      cy.get('.month-input').should('have.value', 10)
+      cy.get('.day-input').should('have.value', 29)
+
+  })
+
+
+  it('When a user types and submits their birthday, it will appear on the page under the correct month', () => {
+    cy.get('.month-name')
+      // .children()
+      // .should('have.length', 12)
+  })
 })
