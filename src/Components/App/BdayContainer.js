@@ -7,7 +7,7 @@ const BdayContainer = ({ months, birthdays }) => {
       <div key={month.id} className="bday-month-container">
         <h3 className="month-name">{month.name}</h3>
         {matchingBirthdaysForThatMonth.length ? 
-          <div>
+          <div className={month.name}>
            {
               matchingBirthdaysForThatMonth.map(matchingBday => {
                 return (

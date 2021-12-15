@@ -26,13 +26,24 @@ describe('Birthdays Calendar user flow', () => {
       cy.get('.name-input').should('have.value', 'Ivonne')
       cy.get('.month-input').should('have.value', 10)
       cy.get('.day-input').should('have.value', 29)
+  });
 
-  })
-
-
-  it('When a user types and submits their birthday, it will appear on the page under the correct month', () => {
-    cy.get('.month-name')
-      // .children()
-      // .should('have.length', 12)
+  it.only('When a user types and submits their birthday, it will appear on the page under the correct month', () => {
+    cy.intercept(
+      'POST',
+      'http://localhost:3001/api/v1/birthdays', {
+        statusCode: 201,
+        body: {name: "Sammy", month: 11, day: 7}
+      }
+    )
+      .get('.Bday-active-input-form')
+      .get('.name-input').type('Sammy')
+      .get('.month-input').type(11)
+      .get('.day-input').type(7)
+      .get(".add-this-bday-button").click();
+    
+    cy.get('.bday-month-container')
+      .get('.month-name').contains('November')
+      .get('div[class="November"]').contains("Sammy: 11/7")
   })
 })
