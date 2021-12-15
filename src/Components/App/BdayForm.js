@@ -10,6 +10,25 @@ class BdayForm extends Component {
     }
   }
 
+  handleInputChange = (event) => {
+    this.setState({[event.target.name]: event.target.value});
+  }
+
+  addNewBday = (event) => {
+    event.preventDefault();
+    const newBday = {
+      name: this.state.name,
+      month: Number(this.state.month),
+      day: Number(this.state.day)
+    }
+    this.props.addNewBirthdayToList(newBday);
+    this.clearInputs();
+  }
+
+  clearInputs = () => {
+    this.setState({name: ``, month: ``, day: ``});
+  }
+
   render = () => {
     return (
       <form className='Bday-active-input-form'>
