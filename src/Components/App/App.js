@@ -34,7 +34,7 @@ class App extends Component {
       <div className="App">
         <h1>Birthdays</h1>
         <BdayForm 
-          addNewBirthdayToList={addNewBirthdayToList} 
+          addNewBirthdayToList={this.addNewBirthdayToList} 
           className='bday-form'
         />
         <BdayContainer 
