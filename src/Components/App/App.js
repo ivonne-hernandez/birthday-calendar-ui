@@ -2,7 +2,7 @@ import './App.css';
 import { months } from '../../months_data';
 import { Component } from 'react';
 import BdayContainer from './BdayContainer';
-import { getAllBdays } from './apiCalls';
+import { getAllBdays, postNewBday } from './apiCalls';
 
 class App extends Component {
   constructor() {
@@ -17,6 +17,14 @@ class App extends Component {
     return getAllBdays()
       .then(data => {
         this.setState({birthdays: data})
+      })
+  }
+
+  addNewBirthdayToList = (newBday) => {
+    return postNewBday(newBday)
+      .then(data => {
+        console.log(data)
+        this.setState({birthdays: [...this.state.birthdays, data]});
       })
   }
 
