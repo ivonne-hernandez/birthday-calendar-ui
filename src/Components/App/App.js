@@ -1,12 +1,13 @@
 import './App.css';
 import { months } from '../../months_data';
 import { Component } from 'react';
+import BdayContainer from './BdayContainer';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      birthdays: []
+      months: months
     }
   }
 
@@ -14,12 +15,10 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Birthdays</h1>
-        <div className='bday-form'>
-
-        </div>
-        <div className='bday-container'>
-
-        </div>
+        <div className='bday-form'/>
+        <BdayContainer 
+          months={this.state.months}
+          className='bday-container'/>
       </div>
     )
   }

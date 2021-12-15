@@ -5,6 +5,7 @@ purple: #D077E7
 
 * {
   font-family: 'IBM Plex Mono', monospace;
+  box-sizing: border-box;
 }
 
 .App {
@@ -24,4 +25,21 @@ h1 {
   padding: 15px;
   width: 30%;
   margin: auto;
+}
+
+.bday-month-container {
+  height: 180px;
+  width: 200px;
+  border: 4px solid black;
+  background-color: white;
+}
+
+.BdayContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto auto;
+}
+.month-name {
+  color: #D077E7;
+  text-align: center;
 }
