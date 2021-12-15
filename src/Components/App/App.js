@@ -1,19 +1,30 @@
 import './App.css';
 import { months } from '../../months_data';
+import { Component } from 'react';
 
-function App() {
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      birthdays: []
+    }
+  }
 
-  return (
-    <div className="App">
-      <h1>Birthdays</h1>
-      <div className='bday-form'>
+  render = () => {
+    return (
+      <div className="App">
+        <h1>Birthdays</h1>
+        <div className='bday-form'>
 
+        </div>
+        <div className='bday-container'>
+
+        </div>
       </div>
-      <div className='bday-container'>
+    )
+  }
 
-      </div>
-    </div>
-  );
+
 }
 
 export default App;
