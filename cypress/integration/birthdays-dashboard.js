@@ -28,7 +28,7 @@ describe('Birthdays Calendar user flow', () => {
       cy.get('.day-input').should('have.value', 29)
   });
 
-  it.only('When a user types and submits their birthday, it will appear on the page under the correct month', () => {
+  it('When a user types and submits their birthday, it will appear on the page under the correct month', () => {
     cy.intercept(
       'POST',
       'http://localhost:3001/api/v1/birthdays', {
