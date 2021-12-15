@@ -2,6 +2,7 @@ import './App.css';
 import { months } from '../../months_data';
 import { Component } from 'react';
 import BdayContainer from './BdayContainer';
+import BdayForm from './BdayForm';
 import { getAllBdays, postNewBday } from './apiCalls';
 
 class App extends Component {
@@ -32,7 +33,10 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Birthdays</h1>
-        <div className='bday-form'/>
+        <BdayForm 
+          addNewBirthdayToList={addNewBirthdayToList} 
+          className='bday-form'
+        />
         <BdayContainer 
           months={this.state.months}
           birthdays={this.state.birthdays}
